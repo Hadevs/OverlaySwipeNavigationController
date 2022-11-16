@@ -48,7 +48,7 @@ open class ChildFullSwipeViewController: UIViewController {
     open func push(viewController: ChildFullSwipeViewController, isNeedToHideBars: Bool) {
         if isNeedToHideBars {
             fakeNavigationBarView.image = navigationController?.navigationBar.screenshot()
-            navigationController?.setNavigationBarHidden(true, animated: false)
+            navigationController?.navigationBar.alpha = 0
             fakeNavigationBarView.isHidden = false
         }
         
@@ -59,7 +59,7 @@ open class ChildFullSwipeViewController: UIViewController {
         super.viewWillAppear(animated)
         
         if !isNeedToShowNavigationBar {
-            navigationController?.setNavigationBarHidden(true, animated: true)
+            navigationController?.navigationBar.alpha = 0
         }
     }
     
@@ -68,7 +68,7 @@ open class ChildFullSwipeViewController: UIViewController {
         
         if isNeedToShowNavigationBar {
             fakeNavigationBarView.isHidden = true
-            navigationController?.setNavigationBarHidden(false, animated: false)
+            navigationController?.navigationBar.alpha = 1
         }
     }
     
