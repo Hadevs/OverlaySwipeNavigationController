@@ -45,6 +45,10 @@ open class ChildFullSwipeViewController: UIViewController {
         addFakeNavigationBarView()
     }
     
+    open func push(viewController: ChildFullSwipeViewController, isNeedToHideBars: Bool) {
+        (navigationController as? FullSwipeNavigationController)?.pushChild(viewController, isNeedToHideBars: isNeedToHideBars)
+    }
+    
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
