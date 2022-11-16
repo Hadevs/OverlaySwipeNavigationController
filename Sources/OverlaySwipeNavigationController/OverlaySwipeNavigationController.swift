@@ -1,7 +1,7 @@
 import UIKit
 
-public class FullSwipeNavigationController: UINavigationController {
-    public override func viewDidLoad() {
+open class FullSwipeNavigationController: UINavigationController {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         setupFullWidthBackGesture()
     }
@@ -30,22 +30,22 @@ public class FullSwipeNavigationController: UINavigationController {
     }
 }
 
-public class ChildFullSwipeViewController: UIViewController {
+open class ChildFullSwipeViewController: UIViewController {
     fileprivate let fakeNavigationBarView = UIImageView()
     
-    public var isNeedToShowNavigationBar = true
+    open var isNeedToShowNavigationBar = true
     
     private var navigationBar: UINavigationBar! {
         navigationController?.navigationBar
     }
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
         addFakeNavigationBarView()
     }
     
-    public override func viewWillAppear(_ animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         if isNeedToShowNavigationBar {
@@ -53,7 +53,7 @@ public class ChildFullSwipeViewController: UIViewController {
         }
     }
     
-    public override func viewDidAppear(_ animated: Bool) {
+    open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         if isNeedToShowNavigationBar {
@@ -68,7 +68,7 @@ public class ChildFullSwipeViewController: UIViewController {
         view.addSubview(fakeNavigationBarView)
     }
     
-    public override func viewDidLayoutSubviews() {
+    open override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         fakeNavigationBarView.frame = navigationBar.frame
@@ -86,7 +86,7 @@ extension UIView {
 }
 
 extension FullSwipeNavigationController: UIGestureRecognizerDelegate {
-    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+    open func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         let isSystemSwipeToBackEnabled = interactivePopGestureRecognizer?.isEnabled == true
         let isThereStackedViewControllers = viewControllers.count > 1
         return isSystemSwipeToBackEnabled && isThereStackedViewControllers
