@@ -52,7 +52,7 @@ open class ChildFullSwipeViewController: UIViewController {
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if isNeedToShowNavigationBar {
+        if !isNeedToShowNavigationBar {
             navigationController?.setNavigationBarHidden(true, animated: true)
         }
     }
